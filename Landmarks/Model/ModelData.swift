@@ -7,6 +7,8 @@
 
 import Foundation
 
+var landmarks: [Landmark] = load("landMarkData.json")
+
 func load<T: Decodable>(_ filename: String) -> T {
     let data: Data
 
