@@ -16,9 +16,11 @@ extension AnyTransition {
     }
 }
 
+
 struct HikeView: View {
     var hike: Hike
     @State private var showDetail = false
+    
     
     var body: some View {
         VStack {
@@ -26,19 +28,21 @@ struct HikeView: View {
                 HikeGraph(hike: hike, path: \.elevation)
                     .frame(width: 50, height: 30)
                 
+                
                 VStack(alignment: .leading) {
                     Text(hike.name)
                         .font(.headline)
                     Text(hike.distanceText)
                 }
                 
+                
                 Spacer()
                 
+                
                 Button {
-                    withAnimation () {
+                    withAnimation {
                         showDetail.toggle()
                     }
-                    
                 } label: {
                     Label("Graph", systemImage: "chevron.right.circle")
                         .labelStyle(.iconOnly)
@@ -48,6 +52,7 @@ struct HikeView: View {
                         .padding()
                 }
             }
+            
             
             if showDetail {
                 HikeDetail(hike: hike)
